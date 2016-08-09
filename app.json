@@ -1,8 +1,8 @@
 {
-  "name": "Python on Heroku example",
-  "description": "A barebones Python app, which can easily be deployed to Heroku.",
+  "name": "Barrel Cacti",
+  "description": "A music blog and website for the band Barrel Cacti",
   "image": "heroku/python",
-  "repository": "https://github.com/heroku/python-getting-started",
+  "repository": "https://github.com/jmankhan/barrelcacti",
   "keywords": ["python", "django" ],
   "addons": [ "heroku-postgresql" ]
 }
