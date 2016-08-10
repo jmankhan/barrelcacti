@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+  <div class="container">
+
+
+<h2>Page View Report</h2>
+
+
+<ul>
+
+{% for album in albums %}
+    <li>{{ album.title }}</li>
+    <li>{{ album.description }}</li>
+    <li>{{ album.release_date }}</li>
+    <li>{{ album.img }}</li>
+{% endfor %}
+
+</ul>
+
+</div>
+
+{% endblock %}

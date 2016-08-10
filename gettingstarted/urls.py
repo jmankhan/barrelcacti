@@ -3,15 +3,15 @@ from django.conf.urls import include, url
 from django.contrib import admin
 admin.autodiscover()
 
-import hello.views
+import barrelcacti.views
 
 # Examples:
 # url(r'^$', 'gettingstarted.views.home', name='home'),
 # url(r'^blog/', include('blog.urls')),
 
 urlpatterns = [
-    url(r'^$', hello.views.index, name='index'),
-    url(r'^db', hello.views.db, name='db'),
-    url(r'^music/(?P<song>)', hello.views.stream_music),
+    url(r'^$', barrelcacti.views.index),
+    url(r'^db', barrelcacti.views.db),
+    url(r'^music/(?P<track>)', barrelcacti.views.stream_music),
     url(r'^admin/', include(admin.site.urls)),
 ]
