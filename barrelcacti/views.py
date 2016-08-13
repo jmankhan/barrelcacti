@@ -1,28 +1,23 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+import json
 import time
-from .models import Album
-from .models import Track
-
+from .models import *
 # Create your views here.
 def index(request):
-    albums = Album.objects.all()
-    print albums
-    return render(request, 'index.html', {'albums' : albums})
+    albumset = Album.objects.all()
+    trackset = Track.objects.all()
+    memberset = Member.objects.all()
+    storyset = Story.objects.all()[0]
 
+    albums = [{'title': a.title, 'description': a.description, 'release_date': a.release_date,
+    	'img': a.img, 'id': a.pk} for a in albumset]
+    tracks = [{'title': t.title, 'length': t.length, 'album': t.album.pk} for t in trackset]
+    members = [{'first_name': m.first_name, 'last_name': m.last_name, 'bio': m.bio, 'id':m.pk} for m in memberset]
+    story = {'title': storyset.title, 'text': storyset.text}
 
-# Stream music over http
-def stream_music(request, track):
-	print track
-	resp = StreamingHttpResponse(stream_music_generator())
-	return resp
+    return render(request, 'index.html', {'albums' : albums, 'tracks' : tracks, 'members' : members, 'story': story})
 
-def stream_music_generator():
-	yield '<p>Test Stream</p>'
-	for x in range(1, 11):
-		yield '<div>Test %s</div>' % x
-		yield ' ' * 1024
-		time.sleep(1)
 
 def db(request):
 	albums = Album.objects.all()

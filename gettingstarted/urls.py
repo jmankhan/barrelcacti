@@ -12,6 +12,6 @@ import barrelcacti.views
 urlpatterns = [
     url(r'^$', barrelcacti.views.index),
     url(r'^db', barrelcacti.views.db),
-    url(r'^music/(?P<track>)', barrelcacti.views.stream_music),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^tinymce/', include('tinymce.urls')),
 ]

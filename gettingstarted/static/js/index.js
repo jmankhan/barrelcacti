@@ -19,11 +19,13 @@ $(document).ready(collapseNavbar);
 // jQuery for page scrolling feature - requires jQuery Easing plugin
 $(function() {
     $('a.page-scroll').bind('click', function(event) {
-        var $anchor = $(this);
+        var anchor = $(this);
+        console.log($(anchor.attr('href')).offset().top);
+
         $('html, body').stop().animate({
-            scrollTop: $($anchor.attr('href')).offset().top
+            scrollTop: $(anchor.attr('href')).offset().top
         }, 1500, 'easeInOutExpo');
-        event.preventDefault();
+        event.preventDefault(); 
     });
 });
 
@@ -31,9 +33,24 @@ $(function() {
 $('.navbar-collapse ul li a').click(function() {
   if ($(this).attr('class') != 'dropdown-toggle active' && $(this).attr('class') != 'dropdown-toggle') {
     $('.navbar-toggle:visible').click();
-  }
+}
 });
+
 
 // I need this for easing.js to work hue
 function init() {
+
 }
+
+// readmore.js
+$('article').readmore();
+
+//audiojs stuff
+audiojs.events.ready(function() {
+    var as = audiojs.createAll();
+});
+
+tinyMCE.init({
+  selector: 'textarea',  // change this value according to your HTML
+  content_css : '/static/css/main.css'  // resolved to http://domain.mine/myLayout.css
+});

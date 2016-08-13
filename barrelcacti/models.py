@@ -1,4 +1,5 @@
 from django.db import models
+from tinymce import models as tinymce_models
 
 class Album(models.Model):
 	title = models.CharField(max_length=100)
@@ -22,3 +23,25 @@ class Track(models.Model):
 		
 	def __str__(self):
 		return self.title;
+
+class Member(models.Model):
+	first_name = models.CharField(max_length=30)
+	last_name = models.CharField(max_length=30)
+	role = models.CharField(max_length=30)
+	bio = tinymce_models.HTMLField()
+
+	def __unicode__(self):
+		return self.first_name + ' ' + self.last_name
+
+	def __str__(self):
+		return self.first_name + ' ' + self.last_name
+
+class Story(models.Model):
+	title = models.CharField(max_length=30)
+	text = tinymce_models.HTMLField()
+
+	def __unicode__(self):
+		return self.title
+
+	def __str__(self):
+		return self.title

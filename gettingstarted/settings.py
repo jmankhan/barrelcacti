@@ -48,7 +48,9 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'barrelcacti'
+    'jsonify',
+    'tinymce',
+    'barrelcacti',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -147,3 +149,15 @@ STATICFILES_DIRS = (
 # https://warehouse.python.org/project/whitenoise/
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
+TINYMCE_DEFAULT_CONFIG = {
+    'theme' : 'advanced',
+    'theme_advanced_buttons1' : 'bold,italic,underline,separator,bullist,numlist,separator,link,unlink',
+    'theme_advanced_buttons2' : '',
+    'theme_advanced_buttons3' : '',
+    'theme_advanced_toolbar_location' : 'top',
+    'theme_advanced_toolbar_align': 'left',
+    'plugins': "table,spellchecker,paste,searchreplace",
+    'paste_text_sticky': True,
+    'paste_text_sticky_default' : True,
+    'valid_styles' : 'font-weight,font-style,text-decoration',
+}
