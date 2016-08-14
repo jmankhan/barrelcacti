@@ -1,0 +1,13 @@
+{% load staticfiles %}
+
+<div class="container">
+	<div class="row">
+		{% for i in image %}
+		<div class="col-lg-3 col-md-4 col-xs-6">
+			{% with "gallery/"|add:i.name|add:".png" as img %}
+				<img class="img-responsive" src="{% static img %}" alt="">
+			{% endwith %}
+		</div>
+		{% endfor %}
+	</div>
+</div>

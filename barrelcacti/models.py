@@ -1,5 +1,6 @@
 from django.db import models
 from tinymce import models as tinymce_models
+import random
 
 class Album(models.Model):
 	title = models.CharField(max_length=100)
@@ -27,7 +28,7 @@ class Track(models.Model):
 class Member(models.Model):
 	first_name = models.CharField(max_length=30)
 	last_name = models.CharField(max_length=30)
-	role = models.CharField(max_length=30)
+	role = models.CharField(max_length=300)
 	bio = tinymce_models.HTMLField()
 
 	def __unicode__(self):
@@ -45,3 +46,8 @@ class Story(models.Model):
 
 	def __str__(self):
 		return self.title
+
+class Image(models.Model):
+	# image = models.ImageField(upload_to = 'gallery/', default = 'gallery/unknown/' + repr(random.random()) + '.jpg')
+	name = models.CharField(max_length=30)
+	

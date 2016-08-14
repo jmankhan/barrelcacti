@@ -50,6 +50,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'jsonify',
     'tinymce',
+    'storages',
+    'sorl.thumbnail',
     'barrelcacti',
 )
 
@@ -161,3 +163,9 @@ TINYMCE_DEFAULT_CONFIG = {
     'paste_text_sticky_default' : True,
     'valid_styles' : 'font-weight,font-style,text-decoration',
 }
+
+if not DEBUG:
+    AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
+    AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
+    AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
+    STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
