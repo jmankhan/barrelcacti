@@ -87,9 +87,9 @@ WSGI_APPLICATION = 'gettingstarted.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': environ['barrelcacti-db-user'],
-        'USER': environ['barrelcacti-db-user'],
-        'PASSWORD': environ['barrelcacti-db-password'],
+        'NAME': os.environ['barrelcacti-db-user'],
+        'USER': os.environ['barrelcacti-db-user'],
+        'PASSWORD': os.environ['barrelcacti-db-password'],
         'HOST': 'localhost',
         'PORT': '',
     }
