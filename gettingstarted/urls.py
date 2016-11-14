@@ -16,4 +16,5 @@ urlpatterns = [
     url(r'^db', barrelcacti.views.db),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^tinymce/', include('tinymce.urls')),
+    url(r'^beats/', barrelcacti.views.beats),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

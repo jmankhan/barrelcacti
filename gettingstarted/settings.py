@@ -27,7 +27,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(PROJECT_ROOT, 'static'),
 )
-SECRET_KEY = 'i+acxn5(akgsn!sr4^qgf(^m&*@+g1@u^t@=8s@axc41ml*f=s'
+
+SECRET_KEY = os.environ['secret']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -90,7 +91,7 @@ DATABASES = {
         'NAME': os.environ['barrelcacti-db-name'],
         'USER': os.environ['barrelcacti-db-user'],
         'PASSWORD': os.environ['barrelcacti-db-password'],
-        'HOST': 'localhost',
+        'HOST': os.environ['barrelcacti-host'],
         'PORT': '',
     }
 }

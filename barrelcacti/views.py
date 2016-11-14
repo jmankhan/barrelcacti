@@ -21,6 +21,9 @@ def index(request):
     return render(request, 'index.html', {'albums' : albums, 'tracks' : tracks, 'members' : members, 'story': story, 'image' : image})
 
 
+def beats(request):
+    return render(request, 'beats.html')
+
 def db(request):
 	albums = Album.objects.all()
 	return render(request, 'db.html', {'albums' : albums})
